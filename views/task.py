@@ -44,7 +44,7 @@ def add_tasks():
     
 
 @task_bp.route("/tasks/<int:task_id>", methods=['PATCH'])
-def update_user(task_id):
+def update_task(task_id):
 
     task=Task.query.get(task_id)
 
@@ -71,7 +71,7 @@ def update_user(task_id):
     return jsonify({"error":"Task doesn't exist!"}),406
 
 @task_bp.route("/tasks/<int:task_id>", methods=['DELETE'])
-def delete_user(task_id):
+def delete_task(task_id):
     task=Task.query.get(task_id)
 
     if task:

@@ -18,12 +18,12 @@ def login():
     
     user = User.query.filter_by(email=email).first()
 
-    if user and check_password_hash(user.password, password ) :
+    if user and check_password_hash(user.password, password ):
         access_token = create_access_token(identity=user.id)
         return jsonify({"access_token": access_token}), 200
 
     else:
-        return jsonify({"error": "Either email/password is incorrect"}), 404
+        return jsonify({"error": "Email/password is incorrect"}), 404
 
 
 # current user
